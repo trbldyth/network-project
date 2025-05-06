@@ -1,0 +1,46 @@
+{% extends "network/layout.html" %}
+{% load static%}
+
+{% block body %}
+<input type="hidden" id="is_authenticated" value="{{ user.is_authenticated }}">
+<div class="container" id="register-view">
+    <form id="register-form">
+        <input id="register-email" class="form-control" type="email" placeholder="Email" name="email" required>
+        <input id="register-username" class="form-control" type="text" placeholder="Username" name="username" required>
+        <input id="register-password" class="form-control" type="password" placeholder="Password" name="password" required>
+        <button type="submit">Register</button>
+    </form>
+</div> 
+<div class="container" id="login-view">
+    <form id="login-form">
+        <input id="login-username" class="form-control" type="text" placeholder="Username" name="username" required>
+        <input id="login-password" class="form-control" type="password" placeholder="Password" name="password" required>
+        <button id="login-submit" type="submit">Login</button>
+    </form>
+</div>
+<div id='profile'>
+    <div id='profile-info'>
+    </div>
+</div>
+<div id='posts-view'>
+     <div class="post-container" id="posts-compose">
+        <form id="post-form">
+            <textarea style="height: 200px; min-height: 200px; max-height: 200px" id="post-text" class="form-control" placeholder="Text" name="text" autofocus required></textarea>
+            <div style="text-align: center">
+                <br>
+            <button id="post-button" style="max-width: 100px;" type="submit">Post</button>
+            </div>
+    </div>
+    <div style="position: absolute; right: 8px" id="page">
+    </div>
+    <br><br>
+    <div>
+        <div id="post-detail">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js'%}"></script>
+{% endblock %}
